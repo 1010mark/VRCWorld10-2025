@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRChatワールド10選 - 結果発表</title>
+  <link rel="stylesheet" href="./public/css/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__inner">
+      <div class="hero__logo">
+        <img src="./public/img/icon.svg" alt="VRChatワールド10選" class="logo-img">
+      </div>
+      <div class="hero__content">
+        <p class="eyebrow">VRChat ワールド投票イベント</p>
+        <h1 class="hero__title">
+          <span class="title-line">VRChat</span>
+          <span class="title-line">ワールド10選</span>
+        </h1>
+        <p class="lead">2025年印象に残ったワールドの投票結果発表ページです。</p>
+      </div>
+    </div>
+    <div class="hero__noise"></div>
+  </header>
+
+  <main class="page">
+    <section class="section section--stats">
+      <div class="section__title">
+        <h2>イベント統計</h2>
+        <p class="section__subtitle">ご協力ありがとうございました！</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card stat-card--primary">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="stat-card__content">
+            <div class="stat-card__value" data-value="153">0</div>
+            <div class="stat-card__label">投票者数</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--secondary">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11l3 3L22 4"></path>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+          </div>
+          <div class="stat-card__content">
+            <div class="stat-card__value" data-value="880">0</div>
+            <div class="stat-card__label">総票数</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--tertiary">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <div class="stat-card__content">
+            <div class="stat-card__value" data-value="847">0</div>
+            <div class="stat-card__label">有効票数</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--accent">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <div class="stat-card__content">
+            <div class="stat-card__value" data-value="5.54">0</div>
+            <div class="stat-card__label">一人当たり票数</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--muted">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="stat-card__content">
+            <div class="stat-card__value" data-value="33">0</div>
+            <div class="stat-card__label">無効票数</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--secondary">
+      <div class="section__title">
+        <h2>投票結果</h2>
+        <p class="section__subtitle">魅力的なワールドたちが揃い踏み！ご協力ありがとうございました。</p>
+      </div>
+      <div class="filter-section">
+        <div class="filter-group">
+          <h3 class="filter-group__title">票数で絞り込み</h3>
+          <div class="filter-buttons" id="filter-buttons">
+            <!-- ボタンはJavaScriptで動的に生成されます -->
+          </div>
+        </div>
+        <div class="filter-group">
+          <h3 class="filter-group__title">プラットフォームで絞り込み</h3>
+          <div class="platform-filters">
+            <label class="platform-checkbox">
+              <input type="checkbox" id="platform-pc" data-platform="pc">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-label">PC</span>
+            </label>
+            <label class="platform-checkbox">
+              <input type="checkbox" id="platform-android" data-platform="android">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-label">Quest</span>
+            </label>
+            <label class="platform-checkbox">
+              <input type="checkbox" id="platform-ios" data-platform="ios">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-label">iOS</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="others-list" class="card-grid card-grid--compact"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>VRChatワールド10選 2025 集計結果</p>
+    <p class="footer__link">
+      <a href="https://x.com/VRCworld10" target="_blank" rel="noreferrer noopener" class="footer__twitter">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>@VRCworld10</span>
+      </a>
+    </p>
+  </footer>
+
+  <script>
+    const badgeText = { pc: "PC", android: "Quest", ios: "iOS" };
+
+    const createPlatformBadges = (platforms) =>
+      Object.entries(platforms)
+        .filter(([, enabled]) => enabled)
+        .map(([key]) => `<span class="badge badge--platform">${badgeText[key]}</span>`)
+        .join("") || `<span class="badge badge--muted">プラットフォーム情報なし</span>`;
+
+    // 画像パスをWebPに変換（フォールバックとしてPNGも指定）
+    const getImageUrl = (thumbnail) => {
+      if (!thumbnail) return "";
+      const basePath = `./public/img/thumbnails_2025/thumbnails/${thumbnail}`;
+      const webpPath = basePath.replace(/\.png$/, ".webp");
+      const pngPath = basePath;
+      // WebPを優先、PNGをフォールバックとして指定
+      return `url('${webpPath}'), url('${pngPath}')`;
+    };
+
+    const createCard = (world, rank) => {
+      const thumb = getImageUrl(world.thumbnail);
+      const rankBadge = typeof rank === "number" ? `<div class="card__rank">#${rank + 1}</div>` : "";
+      return `
+        <article class="card">
+          ${rankBadge}
+          <div class="card__thumb" style="background-image: ${thumb};"></div>
+          <div class="card__body">
+            <div class="card__header">
+              <h3 class="card__title">${world.world_name}</h3>
+              <a class="link" href="${world.world_url}" target="_blank" rel="noreferrer">ワールドを見る</a>
+            </div>
+            <div class="card__meta">
+              <span class="badge">投票数: ${world.count}</span>
+              <span class="badge">お気に入り: ${world.favorites}</span>
+              ${createPlatformBadges(world.platforms || {})}
+            </div>
+          </div>
+        </article>
+      `;
+    };
+
+    const renderList = (targetId, list, withRank) => {
+      const container = document.getElementById(targetId);
+      if (!container) return;
+      // アニメーションをリセットするために一度クリア
+      container.innerHTML = "";
+      // カードを追加（アニメーションはCSSで自動適用）
+      const cards = list.map((world, idx) => createCard(world, withRank ? idx : null)).join("");
+      container.innerHTML = cards;
+    };
+
+    let allWorlds = [];
+    let currentCount = null;
+
+    // プラットフォームフィルターの状態を取得
+    const getPlatformFilters = () => {
+      return {
+        pc: document.getElementById("platform-pc")?.checked || false,
+        android: document.getElementById("platform-android")?.checked || false,
+        ios: document.getElementById("platform-ios")?.checked || false
+      };
+    };
+
+    // プラットフォームフィルターを適用
+    const applyPlatformFilter = (worlds) => {
+      const filters = getPlatformFilters();
+      const activeFilters = Object.entries(filters).filter(([, checked]) => checked);
+      
+      // チェックボックスがすべて外れている場合はフィルタリングしない
+      if (activeFilters.length === 0) {
+        return worlds;
+      }
+
+      return worlds.filter((world) => {
+        const platforms = world.platforms || {};
+        // チェックされているプラットフォームのうち、少なくとも1つがtrueである必要がある
+        return activeFilters.some(([platform]) => platforms[platform] === true);
+      });
+    };
+
+    // フィルターボタンを生成する関数
+    const createFilterButtons = (worlds) => {
+      // 存在する票数を抽出（重複を除去して降順にソート）
+      const counts = [...new Set(worlds.map((w) => w.count))].sort((a, b) => b - a);
+      
+      const buttonsContainer = document.getElementById("filter-buttons");
+      if (!buttonsContainer) return;
+
+      // 「すべて」ボタンを追加
+      const allBtn = document.createElement("button");
+      allBtn.className = "filter-btn";
+      allBtn.setAttribute("data-count", "all");
+      allBtn.textContent = "すべて";
+      allBtn.addEventListener("click", () => {
+        currentCount = null;
+        applyFilters();
+      });
+      buttonsContainer.appendChild(allBtn);
+
+      // 各票数ごとにボタンを生成
+      counts.forEach((count) => {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn";
+        btn.setAttribute("data-count", count);
+        btn.textContent = `${count}票`;
+        btn.addEventListener("click", () => {
+          currentCount = count;
+          applyFilters();
+        });
+        buttonsContainer.appendChild(btn);
+      });
+    };
+
+    // 統合フィルタリング関数
+    const applyFilters = () => {
+      let filtered = allWorlds;
+      
+      // 票数フィルターを適用
+      if (currentCount !== null) {
+        filtered = filtered.filter((world) => world.count === currentCount);
+      }
+      
+      // プラットフォームフィルターを適用
+      filtered = applyPlatformFilter(filtered);
+      
+      renderList("others-list", filtered, false);
+      
+      // アクティブなボタンを更新
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        const btnCount = btn.getAttribute("data-count");
+        if (btnCount === "all" && currentCount === null) {
+          btn.classList.add("filter-btn--active");
+        } else if (btnCount === String(currentCount)) {
+          btn.classList.add("filter-btn--active");
+        } else {
+          btn.classList.remove("filter-btn--active");
+        }
+      });
+    };
+
+    // プラットフォームチェックボックスのイベントリスナーを設定
+    document.querySelectorAll('.platform-checkbox input[type="checkbox"]').forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        applyFilters();
+      });
+    });
+
+    // JSONファイルからデータを読み込む
+    fetch("./public/data/result.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("データの読み込みに失敗しました");
+        }
+        return response.json();
+      })
+      .then((worlds) => {
+        allWorlds = worlds;
+        // フィルターボタンを生成
+        createFilterButtons(worlds);
+        // 初期表示（すべて表示、プラットフォームフィルターはすべて外す）
+        currentCount = null;
+        applyFilters();
+      })
+      .catch((error) => {
+        console.error("エラー:", error);
+        const errorMsg = document.createElement("p");
+        errorMsg.textContent = "データの読み込みに失敗しました。ページを再読み込みしてください。";
+        errorMsg.style.color = "var(--muted)";
+        errorMsg.style.textAlign = "center";
+        errorMsg.style.padding = "20px";
+        document.querySelector(".page").appendChild(errorMsg);
+      });
+
+    // 統計カードのカウントアップアニメーション
+    const animateValue = (element, start, end, duration, isDecimal = false) => {
+      const startTime = performance.now();
+      const range = end - start;
+
+      const update = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = start + range * easeOutQuart;
+
+        if (isDecimal) {
+          element.textContent = current.toFixed(2);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          if (isDecimal) {
+            element.textContent = end.toFixed(2);
+          } else {
+            element.textContent = end;
+          }
+        }
+      };
+
+      requestAnimationFrame(update);
+    };
+
+    // Intersection Observerで統計カードが表示されたらアニメーション開始
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: "0px"
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const statCards = entry.target.querySelectorAll(".stat-card__value");
+          statCards.forEach((card) => {
+            const targetValue = parseFloat(card.getAttribute("data-value"));
+            const isDecimal = targetValue % 1 !== 0;
+            animateValue(card, 0, targetValue, 2000, isDecimal);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // 統計セクションを監視
+    const statsSection = document.querySelector(".section--stats");
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+  </script>
+</body>
+</html>
