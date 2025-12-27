@@ -16,6 +16,15 @@
   --glow-tertiary: rgba(139, 92, 246, 0.25);
   --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.8);
   --shadow-glow: 0 0 40px var(--glow-primary);
+  --platform-pc: #5ac8fa;
+  --platform-pc-border: rgba(90, 200, 250, 0.6);
+  --platform-pc-bg: rgba(90, 200, 250, 0.18);
+  --platform-android: #22c55e;
+  --platform-android-border: rgba(34, 197, 94, 0.6);
+  --platform-android-bg: rgba(34, 197, 94, 0.18);
+  --platform-ios: #a3a3a3;
+  --platform-ios-border: rgba(163, 163, 163, 0.6);
+  --platform-ios-bg: rgba(163, 163, 163, 0.2);
 }
 
 *,
@@ -564,10 +573,43 @@ h3 {
   position: relative;
 }
 
+.platform-checkbox--pc {
+  background: var(--platform-pc-bg);
+  border-color: var(--platform-pc-border);
+}
+
+.platform-checkbox--android {
+  background: var(--platform-android-bg);
+  border-color: var(--platform-android-border);
+}
+
+.platform-checkbox--ios {
+  background: var(--platform-ios-bg);
+  border-color: var(--platform-ios-border);
+}
+
 .platform-checkbox:hover {
   background: var(--surface);
   border-color: var(--accent-primary);
   transform: translateY(-2px);
+}
+
+.platform-checkbox--pc:hover {
+  background: var(--platform-pc-bg);
+  border-color: var(--platform-pc);
+  box-shadow: 0 0 16px rgba(90, 200, 250, 0.4);
+}
+
+.platform-checkbox--android:hover {
+  background: var(--platform-android-bg);
+  border-color: var(--platform-android);
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.35);
+}
+
+.platform-checkbox--ios:hover {
+  background: var(--platform-ios-bg);
+  border-color: var(--platform-ios);
+  box-shadow: 0 0 16px rgba(163, 163, 163, 0.3);
 }
 
 .platform-checkbox input[type="checkbox"] {
@@ -598,6 +640,24 @@ h3 {
   box-shadow: 0 0 10px var(--glow-primary);
 }
 
+.platform-checkbox--pc input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--platform-pc);
+  border-color: var(--platform-pc);
+  box-shadow: 0 0 10px rgba(90, 200, 250, 0.5);
+}
+
+.platform-checkbox--android input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--platform-android);
+  border-color: var(--platform-android);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.45);
+}
+
+.platform-checkbox--ios input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--platform-ios);
+  border-color: var(--platform-ios);
+  box-shadow: 0 0 10px rgba(163, 163, 163, 0.4);
+}
+
 .platform-checkbox input[type="checkbox"]:checked + .checkbox-custom::after {
   content: "";
   position: absolute;
@@ -612,6 +672,18 @@ h3 {
 
 .platform-checkbox input[type="checkbox"]:checked ~ .checkbox-label {
   color: var(--accent-primary);
+}
+
+.platform-checkbox--pc input[type="checkbox"]:checked ~ .checkbox-label {
+  color: var(--platform-pc);
+}
+
+.platform-checkbox--android input[type="checkbox"]:checked ~ .checkbox-label {
+  color: var(--platform-android);
+}
+
+.platform-checkbox--ios input[type="checkbox"]:checked ~ .checkbox-label {
+  color: var(--platform-ios);
 }
 
 .checkbox-label {
@@ -652,6 +724,18 @@ h3 {
   max-width: 420px;
   opacity: 0;
   animation: cardSlideIn 0.6s ease-out forwards;
+}
+
+.card--link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card--link:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(0, 240, 255, 0.15), var(--shadow-deep);
 }
 
 .card:nth-child(1) { animation-delay: 0.1s; }
@@ -798,6 +882,24 @@ h3 {
   color: var(--accent-primary);
 }
 
+.badge--platform.badge--pc {
+  background: var(--platform-pc-bg);
+  border-color: var(--platform-pc-border);
+  color: var(--platform-pc);
+}
+
+.badge--platform.badge--android {
+  background: var(--platform-android-bg);
+  border-color: var(--platform-android-border);
+  color: var(--platform-android);
+}
+
+.badge--platform.badge--ios {
+  background: var(--platform-ios-bg);
+  border-color: var(--platform-ios-border);
+  color: var(--platform-ios);
+}
+
 .badge--muted {
   color: var(--muted);
   background: transparent;
@@ -820,6 +922,26 @@ h3 {
 
 .footer__link {
   margin-top: 16px;
+}
+
+.footer__home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+  transition: all 0.3s ease;
+}
+
+.footer__home:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
 }
 
 .footer__twitter {

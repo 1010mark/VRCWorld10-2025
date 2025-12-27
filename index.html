@@ -19,7 +19,7 @@
           <span class="title-line">VRChat</span>
           <span class="title-line">ワールド10選</span>
         </h1>
-        <p class="lead">2025年印象に残ったワールドの投票結果発表ページです。</p>
+        <p class="lead">2025年の投票結果発表ページです。ご協力ありがとうございました。</p>
       </div>
     </div>
     <div class="hero__noise"></div>
@@ -29,7 +29,6 @@
     <section class="section section--stats">
       <div class="section__title">
         <h2>イベント統計</h2>
-        <p class="section__subtitle">ご協力ありがとうございました！</p>
       </div>
       <div class="stats-grid">
         <div class="stat-card stat-card--primary">
@@ -90,7 +89,7 @@
           </div>
           <div class="stat-card__content">
             <div class="stat-card__value" data-value="33">0</div>
-            <div class="stat-card__label">無効票数</div>
+            <div class="stat-card__label">無効票数（期間外など）</div>
           </div>
         </div>
       </div>
@@ -99,7 +98,6 @@
     <section class="section section--secondary">
       <div class="section__title">
         <h2>投票結果</h2>
-        <p class="section__subtitle">魅力的なワールドたちが揃い踏み！ご協力ありがとうございました。</p>
       </div>
       <div class="filter-section">
         <div class="filter-group">
@@ -111,17 +109,17 @@
         <div class="filter-group">
           <h3 class="filter-group__title">プラットフォームで絞り込み</h3>
           <div class="platform-filters">
-            <label class="platform-checkbox">
+            <label class="platform-checkbox platform-checkbox--pc">
               <input type="checkbox" id="platform-pc" data-platform="pc">
               <span class="checkbox-custom"></span>
               <span class="checkbox-label">PC</span>
             </label>
-            <label class="platform-checkbox">
+            <label class="platform-checkbox platform-checkbox--android">
               <input type="checkbox" id="platform-android" data-platform="android">
               <span class="checkbox-custom"></span>
               <span class="checkbox-label">Quest</span>
             </label>
-            <label class="platform-checkbox">
+            <label class="platform-checkbox platform-checkbox--ios">
               <input type="checkbox" id="platform-ios" data-platform="ios">
               <span class="checkbox-custom"></span>
               <span class="checkbox-label">iOS</span>
@@ -136,6 +134,11 @@
   <footer class="footer">
     <p>VRChatワールド10選 2025 集計結果</p>
     <p class="footer__link">
+      <a href="https://sites.google.com/view/vrcworld10sen" target="_blank" rel="noreferrer noopener" class="footer__home">
+        トップページへ
+      </a>
+    </p>
+    <p class="footer__link">
       <a href="https://x.com/VRCworld10" target="_blank" rel="noreferrer noopener" class="footer__twitter">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -147,11 +150,12 @@
 
   <script>
     const badgeText = { pc: "PC", android: "Quest", ios: "iOS" };
+    const badgeClass = { pc: "badge--pc", android: "badge--android", ios: "badge--ios" };
 
     const createPlatformBadges = (platforms) =>
       Object.entries(platforms)
         .filter(([, enabled]) => enabled)
-        .map(([key]) => `<span class="badge badge--platform">${badgeText[key]}</span>`)
+        .map(([key]) => `<span class="badge badge--platform ${badgeClass[key] || ""}">${badgeText[key]}</span>`)
         .join("") || `<span class="badge badge--muted">プラットフォーム情報なし</span>`;
 
     // 画像パスをWebPに変換（フォールバックとしてPNGも指定）
@@ -168,13 +172,12 @@
       const thumb = getImageUrl(world.thumbnail);
       const rankBadge = typeof rank === "number" ? `<div class="card__rank">#${rank + 1}</div>` : "";
       return `
-        <article class="card">
+        <a class="card card--link" href="${world.world_url}" target="_blank" rel="noreferrer" aria-label="${world.world_name} へのリンク">
           ${rankBadge}
           <div class="card__thumb" style="background-image: ${thumb};"></div>
           <div class="card__body">
             <div class="card__header">
               <h3 class="card__title">${world.world_name}</h3>
-              <a class="link" href="${world.world_url}" target="_blank" rel="noreferrer">ワールドを見る</a>
             </div>
             <div class="card__meta">
               <span class="badge">投票数: ${world.count}</span>
@@ -182,7 +185,7 @@
               ${createPlatformBadges(world.platforms || {})}
             </div>
           </div>
-        </article>
+        </a>
       `;
     };
 
